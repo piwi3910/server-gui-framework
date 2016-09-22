@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<p>You are logged in</p>
+<a href="http://www.mrosupply.webfactional.com/home/">Home Page</a>
+{% else %}
+
+<form action="/login/" method="post">
+    {% csrf_token %}    
+    <h3>{{state}}</h3>
+    <br />
+    <br />
+    username:
+    <input type="text" name="username" value="{{username}}" />
+    password:
+    <input type="password" name="password" value="" /> <br />
+    <input type="submit" value="Log In" />
+</form>
+
+{% endif %}
+{% endblock %}

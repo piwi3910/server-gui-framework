@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="Row">
+
+<div id="div1">
+<div class="formstitles">Network</div>
+<form method="post" class="form1">
+{% csrf_token %}
+{{Form1}}
+<fieldset class="account-action">
+<input type="submit" name="form1" value="Submit" />
+<fieldset>
+</form>
+</div>
+
+<div id="div2">
+<div class="formstitles">Create Bucket</div>
+<form method="post" class="form1">
+{% csrf_token %}
+{{Form2}}
+<fieldset class="account-action">
+<input type="submit" name="form2" value="Submit" />
+</fieldset>
+</form>
+</div>
+
+<div id="div3">
+<div class="formstitles">NTP</div>
+<form method="post" class="form1">
+{% csrf_token %}
+{{Form3}}
+<fieldset class="account-action">
+<input type="submit" name="form3" value="Submit" />
+</fieldset>
+</form>
+</div>
+
+</div>
+
+<div class="Row">
+
+<div id="div1">
+<div class="formstitles">S3ql</div>
+<form method="post" class="form1">
+{% csrf_token %}
+{{Form5}}
+<fieldset class="account-action">
+<input type="submit" name="form5" value="Submit" />
+<fieldset>
+</form>
+</div>
+
+<div id="div2">
+<div class="formstitles">List Buckets</div>
+<form method="post" class="form1">
+{% csrf_token %}
+{{Form4}}
+<fieldset class="account-action">
+<input type="submit" name="form4" value="Submit" />
+<fieldset>
+</form>
+</div>
+
+
+</div>
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+{{Links}}
+{{Error}}
+
+
+{% if buckets %}
+
+<div class="resultstable">
+<table id="newoutput" class="table">
+    <tr>
+        <th>Buckets</th>
+    </tr>
+    {% for bucket in buckets %}
+    <tr>
+        <td>{{bucket}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+
+{% endblock %}
